@@ -14,6 +14,10 @@ from gcn_model import *
 from base_model import *
 from utils import *
 
+import gc
+gc.collect()
+torch.cuda.empty_cache(
+
 
 def set_bn_eval(m):
     classname = m.__class__.__name__
