@@ -16,15 +16,15 @@ class Config(object):
         
         # Gpu
         self.use_gpu=True
-        self.use_multi_gpu=False   
-        self.device_list="0,1,2,3"  #id list of gpus used for training 
+        self.use_multi_gpu=True   
+        self.device_list="0,1"  #id list of gpus used for training 
         
         # Dataset
         assert(dataset_name in ['volleyball', 'collective'])
         self.dataset_name=dataset_name 
         
         if dataset_name=='volleyball':
-            self.data_path='data/volleyball/videos/'  #data path for the volleyball dataset
+            self.data_path='data/volleyball/videos'  #data path for the volleyball dataset
             self.train_seqs = [ 1,3,6,7,10,13,15,16,18,22,23,31,32,36,38,39,40,41,42,48,50,52,53,54,
                                 0,2,8,12,17,19,24,26,27,28,30,33,46,49,51]  #video id list of train set 
             self.test_seqs = [4,5,9,11,14,20,21,25,29,34,35,37,43,44,45,47]  #video id list of test set
@@ -85,8 +85,8 @@ class Config(object):
             time_str=time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
             self.exp_name='[%s_stage%d]<%s>'%(self.exp_note,self.training_stage,time_str)
             
-        self.result_path='result/%s'%self.exp_name
-        self.log_path='result/%s/log.txt'%self.exp_name
+        self.result_path='data/volleyball/%s'%self.exp_name
+        self.log_path='data/volleyball/%s/log.txt'%self.exp_name
             
         if need_new_folder:
             os.mkdir(self.result_path)
