@@ -15,7 +15,6 @@ from base_model import *
 from utils import *
 
 import gc
-print(torch.cuda.list_gpu_processes())
 gc.collect()
 torch.cuda.empty_cache()
 
@@ -102,7 +101,8 @@ def train_net(cfg):
     best_result={'epoch':0, 'activities_acc':0}
     start_epoch=1
     for epoch in range(start_epoch, start_epoch+cfg.max_epoch):
-        
+        gc.collect()
+        torch.cuda.empty_cache()
         if epoch in cfg.lr_plan:
             adjust_lr(optimizer, cfg.lr_plan[epoch])
             
