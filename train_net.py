@@ -103,13 +103,17 @@ def train_net(cfg):
     for epoch in range(start_epoch, start_epoch+cfg.max_epoch):
         gc.collect()
         torch.cuda.empty_cache()
+        
         if epoch in cfg.lr_plan:
             adjust_lr(optimizer, cfg.lr_plan[epoch])
             
         # One epoch of forward and backward
         train_info=train(training_loader, model, device, optimizer, epoch, cfg)
         show_epoch_info('Train', cfg.log_path, train_info)
-
+        
+        gc.collect()
+        torch.cuda.empty_cache()
+        
         # Test
         if epoch % cfg.test_interval_epoch == 0:
             test_info=test(validation_loader, model, device, epoch, cfg)
