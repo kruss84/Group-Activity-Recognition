@@ -16,7 +16,7 @@ class Config(object):
         
         # Gpu
         self.use_gpu=True
-        self.use_multi_gpu=True   
+        self.use_multi_gpu=False   
         self.device_list="0,1,2,3"  #id list of gpus used for training 
         
         # Dataset
