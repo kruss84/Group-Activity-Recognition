@@ -15,8 +15,9 @@ from base_model import *
 from utils import *
 
 import gc
+print(torch.cuda.list_gpu_processes())
 gc.collect()
-torch.cuda.empty_cache(
+torch.cuda.empty_cache()
 
 
 def set_bn_eval(m):
