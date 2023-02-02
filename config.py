@@ -15,7 +15,7 @@ class Config(object):
         self.num_boxes = 12  #max number of bounding boxes in each frame
         
         # Gpu
-        self.use_gpu=False
+        self.use_gpu=True
         self.use_multi_gpu=False   
         self.device_list="0,1"  #id list of gpus used for training 
         
