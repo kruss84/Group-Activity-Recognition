@@ -6,7 +6,7 @@ cfg=Config('volleyball')
 
 cfg.device_list="0,1,2,3"
 cfg.training_stage=2
-cfg.stage1_model_path='result/STAGE1_MODEL.pth'  #PATH OF THE BASE MODEL
+cfg.stage1_model_path='data/volleyball/STAGE1_MODEL.pth'  #PATH OF THE BASE MODEL
 cfg.train_backbone=False
 
 cfg.batch_size=8 #32
